@@ -1,0 +1,14 @@
+---
+- name: Provision wp server
+#  gather_facts: no
+  hosts: servers
+  become: true
+  vars_files:
+    - vars.yaml
+  roles:
+    - role: common
+    - role: nginx
+    - role: geerlingguy.mysql
+    - role: mysql-prepare
+    - role: wp
+    - role: php

@@ -1,0 +1,24 @@
+- name: Create tmp dir
+  file:
+    path: /home/ethos/tmp
+    state: directory
+    owner: ethos
+    group: ethos
+    mode: '666'
+  tags: wp
+
+- name: Download WP dist
+  get_url:
+    url: http://wordpress.org/latest.zip
+    dest: /home/ethos/tmp/latest.zip
+  tags: wp
+
+- name: Unarchive WP
+  unarchive:
+    src: http://wordpress.org/latest.zip
+    dest: /var/www/html/
+    remote_src: yes
+    mode: '755'
+    owner: www-data
+    group: www-data
+  tags: wp

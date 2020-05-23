@@ -1,0 +1,20 @@
+- name: Update repo cache and upgrade all software
+  apt:
+    name: '*'
+    state: latest
+    update_cache: yes
+  tags: common
+
+- name: Install packages
+  apt:
+    name: '{{ item }}'
+    state: present
+  loop:
+    - python3-pip
+    - zip
+  tags: common
+
+- name: Install pymysql
+  pip:
+    name: pymysql
+  tags: common

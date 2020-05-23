@@ -1,0 +1,3 @@
+---
+# tasks file for wp
+- include_tasks: wp.yaml

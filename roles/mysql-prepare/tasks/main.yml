@@ -1,0 +1,3 @@
+---
+# tasks file for mysql-prepare
+- include_tasks: mysql.yaml
